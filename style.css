@@ -342,6 +342,29 @@ header.scrolled {
   transform: translateY(-1px);
 }
 
+.header__email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--color-blue);
+  padding: 0.45rem 0.75rem;
+  border-radius: 9999px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  position: relative;
+  z-index: 1001;
+}
+
+.header__email:hover {
+  background: var(--color-blue-light);
+  transform: translateY(-1px);
+}
+
+/* Скрываем на десктопе — там и так видны контакты */
+@media (min-width: 768px) {
+  .header__email { display: none; }
+}
+
 .header__phone-text {
   display: none;
 }
@@ -1204,6 +1227,11 @@ header.scrolled {
     position: absolute;
     right: 1rem;
     margin-left: 0;
+  }
+
+  .header__email {
+    position: absolute;
+    left: 1rem;
   }
 
 }
