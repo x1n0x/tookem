@@ -1361,6 +1361,13 @@ header.scrolled {
   box-shadow: 0 8px 32px rgba(30, 28, 26, 0.12);
   padding: 1rem 1.25rem;
   animation: cookie-slide-up 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cookie-banner.is-hiding {
+  opacity: 0;
+  transform: translateX(-50%) translateY(2rem);
+  pointer-events: none;
 }
 
 .cookie-banner[hidden] {

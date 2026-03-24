@@ -203,10 +203,14 @@ lightbox.addEventListener('touchend', e => {
 
   btn.addEventListener('click', function () {
     localStorage.setItem('cookie_ok', '1');
+    // Снимаем CSS-анимацию — иначе она блокирует transition
     banner.style.animation = 'none';
-    banner.style.transition = 'opacity 0.25s, transform 0.25s';
-    banner.style.opacity = '0';
-    banner.style.transform = 'translateX(-50%) translateY(1rem)';
-    setTimeout(function () { banner.hidden = true; }, 260);
+    // Форс-reflow: браузер фиксирует текущее состояние (opacity:1)
+    void banner.offsetWidth;
+    // Теперь transition отработает плавно
+    banner.classList.add('is-hiding');
+    banner.addEventListener('transitionend', function () {
+      banner.hidden = true;
+    }, { once: true });
   });
 }());
