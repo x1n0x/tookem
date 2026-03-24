@@ -9,6 +9,12 @@ node_modules/
 .vscode/
 *.iml
 
+# Claude Code
+.claude/
+
+# Python venv
+.venv/
+
 # OS
 .DS_Store
 Thumbs.db
