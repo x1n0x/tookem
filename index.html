@@ -278,6 +278,28 @@
   }
   </script>
 
+  <!-- Schema.org ItemList — реализованные объекты -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Реализованные объекты Электромир в Казахстане",
+    "description": "Объекты, на которых установлено электрооборудование производства Электромир: торговые центры, жилые комплексы, промышленные и инфраструктурные объекты по всему Казахстану.",
+    "numberOfItems": 8,
+    "itemListOrder": "https://schema.org/ItemListUnordered",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ТРЦ АДК «River», Усть-Каменогорск" },
+      { "@type": "ListItem", "position": 2, "name": "ЖК Legenda, пр. Абая 109, Алматы" },
+      { "@type": "ListItem", "position": 3, "name": "ГЭС-1.1 на реке Коктал, Алматинская область" },
+      { "@type": "ListItem", "position": 4, "name": "Гипермаркет Magnum, ТРК Mall Aport, Алматы" },
+      { "@type": "ListItem", "position": 5, "name": "Кинокомплекс в ТРЦ Mega Alma-Ata" },
+      { "@type": "ListItem", "position": 6, "name": "Станция метро «Калкаман-2», Алматы" },
+      { "@type": "ListItem", "position": 7, "name": "Пункт пропуска «Кольжат»" },
+      { "@type": "ListItem", "position": 8, "name": "Мясоперерабатывающий завод АО «Алель Агро»" }
+    ]
+  }
+  </script>
+
   <link rel="canonical" href="https://tookem.kz" />
 
   <!-- Preload критических ресурсов -->
@@ -539,9 +561,63 @@
     </section>
 
     <!-- ============================================================
+         РЕАЛИЗОВАННЫЕ ОБЪЕКТЫ
+         ============================================================ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <span class="section-eyebrow fade-up">Реализованные объекты и партнёры</span>
+        <h2 class="section-title fade-up" id="projects-title">Нам доверяют ведущие компании</h2>
+        <p class="section-lead fade-up">
+          Электрооборудование Электромир установлено на торговых центрах, жилых комплексах,
+          промышленных и инфраструктурных объектах по всему Казахстану.
+        </p>
+
+        <div class="projects__layout">
+
+          <!-- Логотипы клиентов 2×2 -->
+          <div class="projects__clients fade-up" aria-label="Ключевые клиенты Электромир">
+            <div class="client-card">
+              <img src="assets/partners/bcn.png" alt="BCN Group — клиент Электромир" loading="lazy">
+              <span class="client-card__name">BCN Group</span>
+            </div>
+            <div class="client-card">
+              <img src="assets/partners/bazis.png" alt="BAZIS — клиент Электромир" loading="lazy">
+              <span class="client-card__name">BAZIS</span>
+            </div>
+            <div class="client-card">
+              <img src="assets/partners/mega.png" alt="Mega Alma-Ata — клиент Электромир" loading="lazy">
+              <span class="client-card__name">Mega Alma-Ata</span>
+            </div>
+            <div class="client-card">
+              <img src="assets/partners/magnum.png" alt="Magnum — клиент Электромир" loading="lazy">
+              <span class="client-card__name">Magnum</span>
+            </div>
+          </div>
+
+          <!-- Список объектов -->
+          <div class="projects__list fade-up" style="transition-delay:0.15s">
+            <span class="projects__list-eyebrow">Реализованные объекты</span>
+            <ul class="projects__items">
+              <li>ТРЦ АДК «River», г. Усть-Каменогорск</li>
+              <li>ЖК Legenda, пр. Абая 109, Алматы</li>
+              <li>ГЭС-1.1 на р. Коктал, Алматинская обл.</li>
+              <li>Гипермаркет Magnum, ТРК «Mall Aport»</li>
+              <li>Кинокомплекс в ТРЦ «Mega Alma-Ata»</li>
+              <li>Станция метро «Калкаман-2»</li>
+              <li>Пункт пропуска «Кольжат», ДДД</li>
+              <li>Мясоперерабатывающий завод АО «Алель Агро»</li>
+            </ul>
+            <p class="projects__more">и многие другие объекты по всему Казахстану</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          ПРЕИМУЩЕСТВА
          ============================================================ -->
-    <section class="section" id="benefits" aria-labelledby="benefits-title">
+    <section class="section section--alt" id="benefits" aria-labelledby="benefits-title">
       <div class="container">
         <h2 class="section-title fade-up" id="benefits-title">Почему выбирают Электромир</h2>
         <p class="section-lead fade-up">
@@ -608,7 +684,7 @@
     <!-- ============================================================
          ДОСТАВКА И САМОВЫВОЗ
          ============================================================ -->
-    <section class="section section--alt" id="delivery" aria-labelledby="delivery-title">
+    <section class="section" id="delivery" aria-labelledby="delivery-title">
       <div class="container">
         <span class="section-eyebrow fade-up">Доставка электрооборудования Алматы</span>
         <h2 class="section-title fade-up" id="delivery-title">Доставка по Алматы и самовывоз</h2>
@@ -685,7 +761,7 @@
     <!-- ============================================================
          КОНТАКТЫ
          ============================================================ -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section section--alt" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <h2 class="section-title fade-up" id="contact-title">Свяжитесь с нами</h2>
         <div class="contact__layout">
