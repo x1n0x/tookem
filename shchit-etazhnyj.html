@@ -148,47 +148,49 @@
 
   <main>
 
-    <!-- BREADCRUMBS -->
-    <nav class="breadcrumbs container" aria-label="Хлебные крошки">
-      <ol class="breadcrumbs__list">
-        <li><a href="/">Главная</a></li>
-        <li class="breadcrumbs__sep" aria-hidden="true">/</li>
-        <li><a href="/#journal">Каталог</a></li>
-        <li class="breadcrumbs__sep" aria-hidden="true">/</li>
-        <li class="breadcrumbs__current" aria-current="page">Щит этажный ЩЭ</li>
-      </ol>
-    </nav>
-
-    <!-- PRODUCT HERO -->
-    <section class="section product-hero">
-      <div class="container">
-        <div class="product-hero__grid">
-          <div>
-            <span class="section-eyebrow">Собственное производство · Алматы</span>
-            <h1 class="product-hero__title">Щиты этажные <span>ЩЭ</span> на заказ в Алматы</h1>
-            <p class="product-hero__lead">
-              Изготавливаем этажные распределительные щиты ЩЭ для жилых комплексов
-              и административных зданий. Учёт и распределение по квартирам, отсеки
-              для слаботочных сетей, надёжные компоненты ABB, Schneider Electric и Chint.
-              Работаем по Алматы и всему Казахстану.
-            </p>
-            <div class="product-hero__actions">
+    <section class="pd-hero">
+      <div class="pd-hero__bg" aria-hidden="true"></div>
+      <div class="container pd-hero__inner">
+      <nav class="pd-crumbs" aria-label="Хлебные крошки">
+        <ol>
+          <li><a href="/">Главная</a></li>
+          <li class="pd-crumbs__sep" aria-hidden="true">/</li>
+          <li><a href="/#journal">Каталог</a></li>
+          <li class="pd-crumbs__sep" aria-hidden="true">/</li>
+          <li class="pd-crumbs__current" aria-current="page">Щит этажный ЩЭ</li>
+        </ol>
+      </nav>
+        <div class="pd-hero__grid">
+          <div class="pd-hero__text">
+            <span class="pd-hero__eyebrow">Собственное производство · Алматы</span>
+            <h1 class="pd-hero__title">Щиты этажные <span>ЩЭ</span> на заказ в Алматы</h1>
+            <p class="pd-hero__lead">Изготавливаем этажные распределительные щиты для жилых комплексов и административных зданий: учёт и распределение по квартирам, отсеки под слаботочку. Работаем по Алматы и всему Казахстану.</p>
+            <div class="pd-hero__actions">
               <a href="https://api.whatsapp.com/send/?phone=77017771755&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%A9%D0%AD." class="btn-primary" target="_blank" rel="noopener noreferrer">Запросить цену ЩЭ</a>
               <a href="tel:+77017771755" class="btn-secondary">Позвонить</a>
             </div>
           </div>
-          <div class="product-hero__media">
+          <figure class="pd-hero__media">
             <img src="assets/primery-rabot/shit-etazh.jpg" alt="Щит этажный ЩЭ производства Электромир — Алматы" loading="eager">
-          </div>
+            <figcaption class="pd-hero__media-tag">Электромир · Алматы</figcaption>
+          </figure>
+        </div>
+        <div class="pd-hero__stats">
+          <div class="pd-stat"><span class="pd-stat__value">63–100 А</span><span class="pd-stat__label">Ток</span></div>
+          <div class="pd-stat"><span class="pd-stat__value">380/220 В</span><span class="pd-stat__label">Напряжение</span></div>
+          <div class="pd-stat"><span class="pd-stat__value">2–4+</span><span class="pd-stat__label">Квартир на этаж</span></div>
         </div>
       </div>
     </section>
 
-    <!-- НАЗНАЧЕНИЕ -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-title">Что такое щит этажный ЩЭ</h2>
-        <div class="prose">
+    <section class="pd-block pd-block--alt">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Назначение</span>
+          <h2 class="pd-aside__title">Что такое щит этажный ЩЭ</h2>
+          <p class="pd-aside__meta">Узел учёта и распределения на этаже здания.</p>
+        </aside>
+        <div class="pd-content pd-prose">
           <p>
             <strong>Щит этажный ЩЭ</strong> устанавливается на этаже жилого или административного
             здания и служит для приёма питания со стояка, учёта электроэнергии по квартирам
@@ -209,107 +211,137 @@
       </div>
     </section>
 
-    <!-- ХАРАКТЕРИСТИКИ -->
-    <section class="section">
+    <section class="pd-block">
       <div class="container">
-        <h2 class="section-title">Технические характеристики</h2>
-        <p class="section-lead">Типовые параметры. Итоговая конфигурация подбирается под ваш проект.</p>
-        <table class="spec-table">
-          <tbody>
-            <tr><th>Номинальное напряжение</th><td>380/220 В, 50 Гц</td></tr>
-            <tr><th>Номинальный ток</th><td>63–100 А (по проекту)</td></tr>
-            <tr><th>Количество квартир на этаже</th><td>2, 3, 4 и более</td></tr>
-            <tr><th>Учёт электроэнергии</th><td>Поквартирный, прямого включения</td></tr>
-            <tr><th>Слаботочный отсек</th><td>По заказу (интернет, домофон, ТВ)</td></tr>
-            <tr><th>Исполнение корпуса</th><td>Встраиваемое или навесное, IP31</td></tr>
-            <tr><th>Комплектующие</th><td>ABB, Schneider Electric, Chint, IEK, EKF</td></tr>
-            <tr><th>Стандарты</th><td>ПУЭ, ГОСТ, СТ РК</td></tr>
-          </tbody>
-        </table>
+        <div class="pd-datasheet">
+          <div class="pd-datasheet__head">
+            <span class="pd-datasheet__title">Технические характеристики</span>
+            <span class="pd-datasheet__tag">ТИП · ЩЭ</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Номинальное напряжение</span>
+            <span class="pd-spec-row__value">380/220 В, 50 Гц</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Номинальный ток</span>
+            <span class="pd-spec-row__value">63–100 А (по проекту)</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Квартир на этаже</span>
+            <span class="pd-spec-row__value">2, 3, 4 и более</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Учёт электроэнергии</span>
+            <span class="pd-spec-row__value">Поквартирный, прямого включения</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Слаботочный отсек</span>
+            <span class="pd-spec-row__value">По заказу (интернет, домофон, ТВ)</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Исполнение корпуса</span>
+            <span class="pd-spec-row__value">Встраиваемое / навесное, IP31</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Комплектующие</span>
+            <span class="pd-spec-row__value">ABB, Schneider Electric, Chint, IEK, EKF</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Стандарты</span>
+            <span class="pd-spec-row__value">ПУЭ, ГОСТ, СТ РК</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ПРИМЕНЕНИЕ -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-title">Где применяется</h2>
-        <ul class="feature-list">
+    <section class="pd-block pd-block--alt">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Применение</span>
+          <h2 class="pd-aside__title">Где применяется</h2>
+          <p class="pd-aside__meta">Жилые комплексы и административные здания.</p>
+        </aside>
+        <ul class="pd-content pd-features">
           <li>Жилые комплексы и многоквартирные дома</li>
           <li>Апартаменты и общежития</li>
           <li>Административные здания</li>
           <li>Гостиницы и хостелы</li>
           <li>Реконструкция существующих домов</li>
-          <li>Объекты застройщиков (типовые серии)</li>
+          <li>Типовые серии для застройщиков</li>
         </ul>
       </div>
     </section>
 
-    <!-- ПОЧЕМУ МЫ -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Почему ЩЭ заказывают у нас</h2>
-        <ul class="feature-list">
-          <li>20+ лет производства электрооборудования в Казахстане</li>
-          <li>Типовые серии для застройщиков и индивидуальные исполнения</li>
-          <li>Разделение силовой и слаботочной части по проекту</li>
-          <li>Комплектующие ведущих мировых брендов</li>
+    <section class="pd-block">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Преимущества</span>
+          <h2 class="pd-aside__title">Почему ЩЭ заказывают у нас</h2>
+          <p class="pd-aside__meta">20+ лет производства электрооборудования в Казахстане.</p>
+        </aside>
+        <ul class="pd-content pd-features">
+          <li>Типовые серии и индивидуальные исполнения</li>
+          <li>Разделение силовой и слаботочной части</li>
+          <li>Компоненты мировых брендов</li>
+          <li>Опыт производства 20+ лет</li>
           <li>Сдача заказов точно в срок</li>
-          <li>Доставка по Алматы и всему Казахстану</li>
+          <li>Доставка по всему Казахстану</li>
         </ul>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-title">Частые вопросы о ЩЭ</h2>
-        <div class="faq">
-          <details class="faq__item">
+    <section class="pd-block pd-block--alt">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Вопросы</span>
+          <h2 class="pd-aside__title">Частые вопросы о ЩЭ</h2>
+          <p class="pd-aside__meta">Коротко о комплектации, цене и доставке.</p>
+        </aside>
+        <div class="pd-content pd-faq">
+          <details class="pd-faq__item">
             <summary>Что такое щит этажный ЩЭ?</summary>
-            <div class="faq__answer">Щит этажный ЩЭ — это распределительный щит, устанавливаемый на этаже жилого или административного здания. Он принимает питание со стояка, учитывает электроэнергию по квартирам и распределяет её на квартирные линии, а также размещает автоматы защиты и, при необходимости, отсеки для слаботочных сетей.</div>
+            <div class="pd-faq__answer">Щит этажный ЩЭ — это распределительный щит, устанавливаемый на этаже жилого или административного здания. Он принимает питание со стояка, учитывает электроэнергию по квартирам и распределяет её на квартирные линии, а также размещает автоматы защиты и, при необходимости, отсеки для слаботочных сетей.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>На сколько квартир изготавливается ЩЭ?</summary>
-            <div class="faq__answer">Мы изготавливаем этажные щиты под любое количество квартир на этаже — типовые исполнения на 2, 3, 4 квартиры и более. Компоновка, число счётчиков и групп подбираются под проект здания.</div>
+            <div class="pd-faq__answer">Мы изготавливаем этажные щиты под любое количество квартир на этаже — типовые исполнения на 2, 3, 4 квартиры и более. Компоновка, число счётчиков и групп подбираются под проект здания.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>Можно ли предусмотреть отсек для слаботочки?</summary>
-            <div class="faq__answer">Да. По требованию проекта в этажном щите выделяется отдельный слаботочный отсек для интернета, домофона, телевидения и систем безопасности с разделением силовой и слаботочной части.</div>
+            <div class="pd-faq__answer">Да. По требованию проекта в этажном щите выделяется отдельный слаботочный отсек для интернета, домофона, телевидения и систем безопасности с разделением силовой и слаботочной части.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>Сколько стоит этажный щит?</summary>
-            <div class="faq__answer">Стоимость ЩЭ зависит от количества квартир, комплектующих, наличия учёта и слаботочного отсека. Пришлите проект или спецификацию — рассчитаем стоимость под ваш объект.</div>
+            <div class="pd-faq__answer">Стоимость ЩЭ зависит от количества квартир, комплектующих, наличия учёта и слаботочного отсека. Пришлите проект или спецификацию — рассчитаем стоимость под ваш объект.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>Доставляете ли ЩЭ по Казахстану?</summary>
-            <div class="faq__answer">Да, доставляем по Алматы и по всему Казахстану. Доступен самовывоз с производства на ул. Утеген Батыра 7А в Алматы.</div>
+            <div class="pd-faq__answer">Да, доставляем по Алматы и по всему Казахстану. Доступен самовывоз с производства на ул. Утеген Батыра 7А в Алматы.</div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ДРУГОЕ ОБОРУДОВАНИЕ -->
-    <section class="section">
+    <section class="pd-block">
       <div class="container">
-        <h2 class="section-title">Другое оборудование</h2>
-        <div class="related">
-          <a class="related__card" href="/vru">Шкафы ВРУ
+        <h2 class="pd-heading-center">Другое оборудование</h2>
+        <div class="pd-related">
+          <a class="pd-related__card" href="/vru">Шкафы ВРУ
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a class="related__card" href="/ktpn">КТПН / СКТП
+          <a class="pd-related__card" href="/ktpn">КТПН / СКТП
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a class="related__card" href="/avr">Щиты АВР / ЯОУ
+          <a class="pd-related__card" href="/avr">Щиты АВР / ЯОУ
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section">
+    <section class="pd-block">
       <div class="container">
-        <div class="cta-band">
+        <div class="pd-cta">
           <h2>Нужен расчёт стоимости ЩЭ?</h2>
           <p>Отправьте проект или спецификацию — подготовим предложение по этажным щитам под ваш жилой комплекс в Алматы или в любом городе Казахстана.</p>
           <a href="https://api.whatsapp.com/send/?phone=77017771755&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%A9%D0%AD." class="btn-primary" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>

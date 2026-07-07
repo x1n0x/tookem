@@ -152,46 +152,49 @@
 
   <main>
 
-    <!-- BREADCRUMBS -->
-    <nav class="breadcrumbs container" aria-label="Хлебные крошки">
-      <ol class="breadcrumbs__list">
-        <li><a href="/">Главная</a></li>
-        <li class="breadcrumbs__sep" aria-hidden="true">/</li>
-        <li><a href="/#journal">Каталог</a></li>
-        <li class="breadcrumbs__sep" aria-hidden="true">/</li>
-        <li class="breadcrumbs__current" aria-current="page">Шкаф ВРУ</li>
-      </ol>
-    </nav>
-
-    <!-- PRODUCT HERO -->
-    <section class="section product-hero">
-      <div class="container">
-        <div class="product-hero__grid">
-          <div>
-            <span class="section-eyebrow">Собственное производство · Алматы</span>
-            <h1 class="product-hero__title">Производство шкафов <span>ВРУ</span> в Алматы</h1>
-            <p class="product-hero__lead">
-              Изготавливаем вводно-распределительные устройства (ВРУ) под заказ по типовым
-              и индивидуальным схемам. Ввод, учёт и распределение электроэнергии на объекте —
-              на надёжных компонентах ABB, Schneider Electric и Chint. Работаем по Алматы и всему Казахстану.
-            </p>
-            <div class="product-hero__actions">
+    <section class="pd-hero">
+      <div class="pd-hero__bg" aria-hidden="true"></div>
+      <div class="container pd-hero__inner">
+      <nav class="pd-crumbs" aria-label="Хлебные крошки">
+        <ol>
+          <li><a href="/">Главная</a></li>
+          <li class="pd-crumbs__sep" aria-hidden="true">/</li>
+          <li><a href="/#journal">Каталог</a></li>
+          <li class="pd-crumbs__sep" aria-hidden="true">/</li>
+          <li class="pd-crumbs__current" aria-current="page">Шкаф ВРУ</li>
+        </ol>
+      </nav>
+        <div class="pd-hero__grid">
+          <div class="pd-hero__text">
+            <span class="pd-hero__eyebrow">Собственное производство · Алматы</span>
+            <h1 class="pd-hero__title">Производство шкафов <span>ВРУ</span> в Алматы</h1>
+            <p class="pd-hero__lead">Изготавливаем вводно-распределительные устройства под заказ по типовым и индивидуальным схемам — на компонентах ABB, Schneider Electric и Chint. Работаем по Алматы и всему Казахстану.</p>
+            <div class="pd-hero__actions">
               <a href="https://api.whatsapp.com/send/?phone=77017771755&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%92%D0%A0%D0%A3." class="btn-primary" target="_blank" rel="noopener noreferrer">Запросить цену ВРУ</a>
               <a href="tel:+77017771755" class="btn-secondary">Позвонить</a>
             </div>
           </div>
-          <div class="product-hero__media">
+          <figure class="pd-hero__media">
             <img src="assets/primery-rabot/vru.jpg" alt="Шкаф ВРУ производства Электромир — Алматы" loading="eager">
-          </div>
+            <figcaption class="pd-hero__media-tag">Электромир · Алматы</figcaption>
+          </figure>
+        </div>
+        <div class="pd-hero__stats">
+          <div class="pd-stat"><span class="pd-stat__value">100–630 А</span><span class="pd-stat__label">Ток ввода</span></div>
+          <div class="pd-stat"><span class="pd-stat__value">380/220 В</span><span class="pd-stat__label">Напряжение</span></div>
+          <div class="pd-stat"><span class="pd-stat__value">IP31–54</span><span class="pd-stat__label">Защита</span></div>
         </div>
       </div>
     </section>
 
-    <!-- НАЗНАЧЕНИЕ -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-title">Что такое ВРУ</h2>
-        <div class="prose">
+    <section class="pd-block pd-block--alt">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Назначение</span>
+          <h2 class="pd-aside__title">Что такое ВРУ</h2>
+          <p class="pd-aside__meta">Основной узел ввода электроснабжения объекта.</p>
+        </aside>
+        <div class="pd-content pd-prose">
           <p>
             <strong>ВРУ — вводно-распределительное устройство</strong> — это основной электрощит на вводе
             в здание. Через него электроэнергия поступает от питающей сети, учитывается прибором учёта
@@ -212,107 +215,137 @@
       </div>
     </section>
 
-    <!-- ХАРАКТЕРИСТИКИ -->
-    <section class="section">
+    <section class="pd-block">
       <div class="container">
-        <h2 class="section-title">Технические характеристики</h2>
-        <p class="section-lead">Типовые параметры. Итоговая конфигурация подбирается под ваш проект.</p>
-        <table class="spec-table">
-          <tbody>
-            <tr><th>Номинальное напряжение</th><td>380/220 В, 3 фазы, 50 Гц</td></tr>
-            <tr><th>Номинальный ток ввода</th><td>100–630 А (по проекту)</td></tr>
-            <tr><th>Количество вводов</th><td>1 или 2 (с секцией АВР по заказу)</td></tr>
-            <tr><th>Степень защиты</th><td>IP31 стандартно, IP54 по заказу</td></tr>
-            <tr><th>Корпус</th><td>Металлический, порошковая окраска, навесной или напольный</td></tr>
-            <tr><th>Комплектующие</th><td>ABB, Schneider Electric, Chint, IEK, EKF</td></tr>
-            <tr><th>Учёт электроэнергии</th><td>Прямого или трансформаторного включения</td></tr>
-            <tr><th>Стандарты</th><td>ПУЭ, ГОСТ, СТ РК</td></tr>
-          </tbody>
-        </table>
+        <div class="pd-datasheet">
+          <div class="pd-datasheet__head">
+            <span class="pd-datasheet__title">Технические характеристики</span>
+            <span class="pd-datasheet__tag">ТИП · ВРУ</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Номинальное напряжение</span>
+            <span class="pd-spec-row__value">380/220 В, 3 фазы, 50 Гц</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Номинальный ток ввода</span>
+            <span class="pd-spec-row__value">100–630 А (по проекту)</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Количество вводов</span>
+            <span class="pd-spec-row__value">1 или 2 (с секцией АВР по заказу)</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Степень защиты</span>
+            <span class="pd-spec-row__value">IP31 стандартно, IP54 по заказу</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Корпус</span>
+            <span class="pd-spec-row__value">Металлический, порошковая окраска</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Комплектующие</span>
+            <span class="pd-spec-row__value">ABB, Schneider Electric, Chint, IEK, EKF</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Учёт электроэнергии</span>
+            <span class="pd-spec-row__value">Прямого / трансформаторного включения</span>
+          </div>
+          <div class="pd-spec-row">
+            <span class="pd-spec-row__label">Стандарты</span>
+            <span class="pd-spec-row__value">ПУЭ, ГОСТ, СТ РК</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ПРИМЕНЕНИЕ -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-title">Где применяется</h2>
-        <ul class="feature-list">
+    <section class="pd-block pd-block--alt">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Применение</span>
+          <h2 class="pd-aside__title">Где применяется</h2>
+          <p class="pd-aside__meta">Жилые, коммерческие и промышленные объекты.</p>
+        </aside>
+        <ul class="pd-content pd-features">
           <li>Жилые дома и жилые комплексы</li>
           <li>Торговые и офисные центры</li>
           <li>Промышленные и складские объекты</li>
           <li>Административные и социальные здания</li>
           <li>Объекты инфраструктуры и ЖКХ</li>
-          <li>Строительные площадки (временное электроснабжение)</li>
+          <li>Строительные площадки</li>
         </ul>
       </div>
     </section>
 
-    <!-- ПОЧЕМУ МЫ -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Почему ВРУ заказывают у нас</h2>
-        <ul class="feature-list">
-          <li>20+ лет производства электрооборудования в Казахстане</li>
-          <li>Изготовление по типовым и индивидуальным схемам</li>
-          <li>Комплектующие ведущих мировых брендов</li>
-          <li>Контроль качества на каждом этапе сборки</li>
+    <section class="pd-block">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Преимущества</span>
+          <h2 class="pd-aside__title">Почему ВРУ заказывают у нас</h2>
+          <p class="pd-aside__meta">20+ лет производства электрооборудования в Казахстане.</p>
+        </aside>
+        <ul class="pd-content pd-features">
+          <li>Опыт производства 20+ лет</li>
+          <li>Типовые и индивидуальные схемы</li>
+          <li>Компоненты мировых брендов</li>
+          <li>Контроль качества на каждом этапе</li>
           <li>Сдача заказов точно в срок</li>
-          <li>Доставка по Алматы и всему Казахстану</li>
+          <li>Доставка по всему Казахстану</li>
         </ul>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-title">Частые вопросы о ВРУ</h2>
-        <div class="faq">
-          <details class="faq__item">
+    <section class="pd-block pd-block--alt">
+      <div class="container pd-block__inner">
+        <aside class="pd-aside">
+          <span class="pd-aside__eyebrow">Вопросы</span>
+          <h2 class="pd-aside__title">Частые вопросы о ВРУ</h2>
+          <p class="pd-aside__meta">Коротко о проекте, сроках, цене и доставке.</p>
+        </aside>
+        <div class="pd-content pd-faq">
+          <details class="pd-faq__item">
             <summary>Что такое ВРУ и для чего оно нужно?</summary>
-            <div class="faq__answer">ВРУ (вводно-распределительное устройство) — это электрощит, через который электроэнергия вводится в здание, учитывается и распределяется по группам потребителей. ВРУ защищает линии от перегрузок и коротких замыканий и является основным узлом ввода электроснабжения жилого, коммерческого или промышленного объекта.</div>
+            <div class="pd-faq__answer">ВРУ (вводно-распределительное устройство) — это электрощит, через который электроэнергия вводится в здание, учитывается и распределяется по группам потребителей. ВРУ защищает линии от перегрузок и коротких замыканий и является основным узлом ввода электроснабжения жилого, коммерческого или промышленного объекта.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>Можно ли изготовить ВРУ по проекту заказчика?</summary>
-            <div class="faq__answer">Да. Мы изготавливаем ВРУ по типовым и индивидуальным однолинейным схемам заказчика — подбираем номиналы аппаратов, компоновку, степень защиты корпуса и комплектующие под конкретный проект и требования объекта.</div>
+            <div class="pd-faq__answer">Да. Мы изготавливаем ВРУ по типовым и индивидуальным однолинейным схемам заказчика — подбираем номиналы аппаратов, компоновку, степень защиты корпуса и комплектующие под конкретный проект и требования объекта.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>За какой срок изготавливаете ВРУ в Алматы?</summary>
-            <div class="faq__answer">Срок зависит от сложности схемы и наличия комплектующих. Типовые ВРУ изготавливаем в сжатые сроки, сложные конфигурации — по согласованному графику. Точный срок называем после получения схемы и спецификации.</div>
+            <div class="pd-faq__answer">Срок зависит от сложности схемы и наличия комплектующих. Типовые ВРУ изготавливаем в сжатые сроки, сложные конфигурации — по согласованному графику. Точный срок называем после получения схемы и спецификации.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>Сколько стоит шкаф ВРУ?</summary>
-            <div class="faq__answer">Стоимость ВРУ рассчитывается индивидуально и зависит от номинального тока, количества отходящих линий, марки комплектующих и типа корпуса. Отправьте нам схему или ТЗ — рассчитаем стоимость под ваш проект.</div>
+            <div class="pd-faq__answer">Стоимость ВРУ рассчитывается индивидуально и зависит от номинального тока, количества отходящих линий, марки комплектующих и типа корпуса. Отправьте нам схему или ТЗ — рассчитаем стоимость под ваш проект.</div>
           </details>
-          <details class="faq__item">
+          <details class="pd-faq__item">
             <summary>Доставляете ли ВРУ по Казахстану?</summary>
-            <div class="faq__answer">Да, доставляем готовое оборудование по Алматы и по всему Казахстану. Крупногабаритные шкафы отгружаем с согласованием логистики. Доступен самовывоз с производства на ул. Утеген Батыра 7А.</div>
+            <div class="pd-faq__answer">Да, доставляем готовое оборудование по Алматы и по всему Казахстану. Крупногабаритные шкафы отгружаем с согласованием логистики. Доступен самовывоз с производства на ул. Утеген Батыра 7А.</div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ДРУГОЕ ОБОРУДОВАНИЕ -->
-    <section class="section">
+    <section class="pd-block">
       <div class="container">
-        <h2 class="section-title">Другое оборудование</h2>
-        <div class="related">
-          <a class="related__card" href="/shchit-etazhnyj">Щиты этажные ЩЭ
+        <h2 class="pd-heading-center">Другое оборудование</h2>
+        <div class="pd-related">
+          <a class="pd-related__card" href="/shchit-etazhnyj">Щиты этажные ЩЭ
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a class="related__card" href="/ktpn">КТПН / СКТП
+          <a class="pd-related__card" href="/ktpn">КТПН / СКТП
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a class="related__card" href="/avr">Щиты АВР / ЯОУ
+          <a class="pd-related__card" href="/avr">Щиты АВР / ЯОУ
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section">
+    <section class="pd-block">
       <div class="container">
-        <div class="cta-band">
+        <div class="pd-cta">
           <h2>Нужен расчёт стоимости ВРУ?</h2>
           <p>Отправьте однолинейную схему или ТЗ — подготовим коммерческое предложение под ваш объект в Алматы или в любом городе Казахстана.</p>
           <a href="https://api.whatsapp.com/send/?phone=77017771755&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%92%D0%A0%D0%A3." class="btn-primary" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
