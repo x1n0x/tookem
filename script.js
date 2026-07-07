@@ -76,6 +76,9 @@ const images = Array.from(galleryItems).map(item => {
 
 let currentIndex = 0;
 
+// Лайтбокс есть только на страницах с галереей — на продуктовых страницах пропускаем
+const hasLightbox = lightbox && lightboxImg && lightboxClose && lightboxPrev && lightboxNext;
+
 function openLightbox(index) {
   currentIndex = index;
   lightboxImg.src = images[index].src;
@@ -102,47 +105,49 @@ function showNext() {
   lightboxImg.alt = images[currentIndex].alt;
 }
 
-// Открытие по клику и Enter/Space
-galleryItems.forEach((item, i) => {
-  item.addEventListener('click', () => openLightbox(i));
-  item.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openLightbox(i);
-    }
+if (hasLightbox) {
+  // Открытие по клику и Enter/Space
+  galleryItems.forEach((item, i) => {
+    item.addEventListener('click', () => openLightbox(i));
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(i);
+      }
+    });
   });
-});
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxPrev.addEventListener('click', showPrev);
-lightboxNext.addEventListener('click', showNext);
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', showPrev);
+  lightboxNext.addEventListener('click', showNext);
 
-// Закрытие по клику на фон
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox) closeLightbox();
-});
+  // Закрытие по клику на фон
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
 
-// Клавиатурная навигация в лайтбоксе
-document.addEventListener('keydown', e => {
-  if (lightbox.hidden) return;
-  if (e.key === 'Escape')      closeLightbox();
-  if (e.key === 'ArrowLeft')   showPrev();
-  if (e.key === 'ArrowRight')  showNext();
-});
+  // Клавиатурная навигация в лайтбоксе
+  document.addEventListener('keydown', e => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   showPrev();
+    if (e.key === 'ArrowRight')  showNext();
+  });
 
-// Свайп на мобиле
-let touchStartX = 0;
+  // Свайп на мобиле
+  let touchStartX = 0;
 
-lightbox.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
 
-lightbox.addEventListener('touchend', e => {
-  const delta = e.changedTouches[0].screenX - touchStartX;
-  if (Math.abs(delta) > 40) {
-    delta < 0 ? showNext() : showPrev();
-  }
-}, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    const delta = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(delta) > 40) {
+      delta < 0 ? showNext() : showPrev();
+    }
+  }, { passive: true });
+}
 
 // ============================================================
 // 2GIS КАРТА — Электромир, Алматы
