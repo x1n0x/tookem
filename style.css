@@ -1774,7 +1774,6 @@ header.scrolled {
 :root {
   --pd-navy:      #141d33;
   --pd-navy-2:    #1b2647;
-  --pd-mono: ui-monospace, "Cascadia Code", "SF Mono", "Consolas", "Liberation Mono", monospace;
 }
 
 /* ---------- Контурная кнопка (используется и в блоке отзывов) ---------- */
@@ -1840,7 +1839,7 @@ header.scrolled {
 
 /* Хлебные крошки внутри hero */
 .pd-crumbs {
-  font-family: var(--pd-mono);
+  font-family: var(--font-body);
   font-size: 0.78rem;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.5);
@@ -1890,7 +1889,7 @@ header.scrolled {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--pd-mono);
+  font-family: var(--font-main);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1963,7 +1962,7 @@ header.scrolled {
   position: absolute;
   left: 0.85rem;
   bottom: 0.85rem;
-  font-family: var(--pd-mono);
+  font-family: var(--font-body);
   font-size: 0.68rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1993,7 +1992,7 @@ header.scrolled {
 .pd-stat:last-child { border-right: none; }
 
 .pd-stat__value {
-  font-family: var(--pd-mono);
+  font-family: var(--font-main);
   font-weight: 600;
   font-size: clamp(1.1rem, 2.4vw, 1.5rem);
   color: #fff;
@@ -2041,7 +2040,7 @@ header.scrolled {
 
 .pd-aside__eyebrow {
   display: block;
-  font-family: var(--pd-mono);
+  font-family: var(--font-main);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2151,7 +2150,7 @@ header.scrolled {
 }
 
 .pd-datasheet__tag {
-  font-family: var(--pd-mono);
+  font-family: var(--font-main);
   font-size: 0.74rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2188,8 +2187,8 @@ header.scrolled {
 }
 
 .pd-spec-row__value {
-  font-family: var(--pd-mono);
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: 0.95rem;
   color: var(--color-text);
 }
