@@ -3,7 +3,8 @@
    ============================================================ */
 @font-face {
   font-family: 'Uni Sans';
-  src: url('assets/fonts/Uni Sans Heavy.otf') format('opentype');
+  src: url('assets/fonts/Uni Sans Heavy.woff2') format('woff2'),
+       url('assets/fonts/Uni Sans Heavy.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -13,7 +14,8 @@
 /* NexaText — оптимизирован для чтения (body, описания, футер) */
 @font-face {
   font-family: 'NexaText';
-  src: url('assets/fonts/NexaText-Light.otf') format('opentype');
+  src: url('assets/fonts/NexaText-Light.woff2') format('woff2'),
+       url('assets/fonts/NexaText-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -21,7 +23,8 @@
 
 @font-face {
   font-family: 'NexaText';
-  src: url('assets/fonts/NexaText-Regular.otf') format('opentype');
+  src: url('assets/fonts/NexaText-Regular.woff2') format('woff2'),
+       url('assets/fonts/NexaText-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -29,7 +32,8 @@
 
 @font-face {
   font-family: 'NexaText';
-  src: url('assets/fonts/NexaText-Bold_0.otf') format('opentype');
+  src: url('assets/fonts/NexaText-Bold_0.woff2') format('woff2'),
+       url('assets/fonts/NexaText-Bold_0.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -218,6 +222,14 @@ address { font-style: normal; }
 .btn-primary:hover {
   background: var(--color-green-light);
   transform: translateY(-2px);
+}
+
+/* Видимый фокус только при навигации с клавиатуры (не влияет на клики мышью) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
 }
 
 /* ============================================================
@@ -2375,6 +2387,13 @@ header.scrolled {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
   .pd-related__card,
   .pd-faq__item summary::after { transition: none; }
 }

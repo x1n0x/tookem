@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://tookem.kz/assets/primery-rabot/avr-yaou.jpg">
   <meta property="og:url" content="https://tookem.kz/avr">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Электромир">
   <meta property="og:locale" content="ru_RU">
 
   <!-- Twitter Card -->
@@ -31,6 +32,10 @@
 
   <link rel="canonical" href="https://tookem.kz/avr" />
 
+  <!-- Preload критических шрифтов -->
+  <link rel="preload" href="assets/fonts/Uni Sans Heavy.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/NexaText-Light.woff2" as="font" type="font/woff2" crossorigin>
+
   <!-- Schema.org Product -->
   <script type="application/ld+json">
   {
@@ -43,13 +48,7 @@
     "brand": { "@type": "Brand", "name": "Электромир" },
     "manufacturer": { "@type": "Organization", "name": "Электромир", "url": "https://tookem.kz" },
     "areaServed": ["Алматы", "Казахстан", "СНГ"],
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "KZT",
-      "availability": "https://schema.org/InStock",
-      "url": "https://tookem.kz/avr",
-      "seller": { "@type": "Organization", "name": "Электромир" }
-    }
+    "url": "https://tookem.kz/avr"
   }
   </script>
 
@@ -108,6 +107,18 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode: куки аналитики только после согласия в баннере
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    try {
+      if (localStorage.getItem('cookie_ok')) {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-X752G2W1D5');
   </script>
@@ -118,7 +129,7 @@
   <header id="header">
     <div class="container header__inner">
       <a href="/" class="header__logo" aria-label="Электромир — главная">
-        <img class="header__logo-icon" src="assets/logo/logo-just.png" alt="Электромир — производство электрооборудования в Алматы" draggable="false" />
+        <img class="header__logo-icon" src="assets/logo/logo-just.png" alt="Электромир — производство электрооборудования в Алматы" width="213" height="320" draggable="false" />
         <span class="header__logo-text" aria-hidden="true">
           <span class="header__logo-elektro">ЭЛЕКТРО</span><span class="header__logo-mir">МИР</span>
         </span>
@@ -171,7 +182,7 @@
             </div>
           </div>
           <figure class="pd-hero__media">
-            <img src="assets/primery-rabot/avr-yaou.jpg" alt="Щит автоматики АВР ЯОУ производства Электромир — Алматы" loading="eager">
+            <img src="assets/primery-rabot/avr-yaou.jpg" alt="Щит автоматики АВР ЯОУ производства Электромир — Алматы" width="768" height="768" loading="eager" fetchpriority="high">
             <figcaption class="pd-hero__media-tag">Электромир · Алматы</figcaption>
           </figure>
         </div>

@@ -14,8 +14,9 @@
   <meta property="og:image" content="https://tookem.kz/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://tookem.kz">
+  <meta property="og:url" content="https://tookem.kz/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Электромир">
   <meta property="og:locale" content="ru_RU">
 
   <!-- Twitter Card -->
@@ -36,8 +37,11 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://tookem.kz/#organization",
     "name": "Электромир",
-    "url": "https://tookem.kz",
+    "url": "https://tookem.kz/",
+    "image": "https://tookem.kz/assets/og-image.jpg",
+    "logo": "https://tookem.kz/assets/logo/logo-just.png",
     "telephone": "+77017771755",
     "email": "info@tookem.kz",
     "address": {
@@ -45,6 +49,11 @@
       "streetAddress": "ул. Утеген Батыра 7А",
       "addressLocality": "Алматы",
       "addressCountry": "KZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.24763,
+      "longitude": 76.851545
     },
     "description": "Производство электрооборудования в Алматы: ВРУ, ЩЭ, КТПН, АВР. Доставка по Алматы и самовывоз. 20+ лет на рынке Казахстана.",
     "foundingDate": "2004",
@@ -136,11 +145,12 @@
   }
   </script>
 
-  <link rel="canonical" href="https://tookem.kz" />
+  <link rel="canonical" href="https://tookem.kz/" />
 
   <!-- Preload критических ресурсов -->
   <link rel="preload" href="assets/primery-rabot/hero.jpg" as="image" fetchpriority="high">
-  <link rel="preload" href="assets/fonts/Uni Sans Heavy.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/Uni Sans Heavy.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/NexaText-Light.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="style.css">
 
@@ -149,6 +159,18 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode: куки аналитики только после согласия в баннере
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    try {
+      if (localStorage.getItem('cookie_ok')) {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-X752G2W1D5');
   </script>
@@ -165,6 +187,7 @@
           class="header__logo-icon"
           src="assets/logo/logo-just.png"
           alt="Электромир — производство электрооборудования в Алматы"
+          width="213" height="320"
           draggable="false"
         />
         <span class="header__logo-text" aria-hidden="true">
@@ -209,6 +232,7 @@
           src="assets/primery-rabot/hero.jpg"
           alt="Производство электрооборудования Электромир Алматы"
           class="hero__bg-img"
+          width="1680" height="1260"
           loading="eager"
           fetchpriority="high"
         >
@@ -230,7 +254,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Получить расчёт
+          Получить расчёт в WhatsApp
         </a>
       </div>
     </section>
@@ -246,22 +270,22 @@
         </p>
         <div class="gallery" role="list">
           <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem" tabindex="0" aria-label="Открыть фото 1">
-            <img src="assets/primery-rabot/3.jpg" alt="Производство электрооборудования Электромир Алматы" loading="lazy" class="gallery__img">
+            <img src="assets/primery-rabot/3.jpg" alt="Производство электрооборудования Электромир Алматы" width="1029" height="1600" loading="lazy" class="gallery__img">
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem" tabindex="0" aria-label="Открыть фото 2">
-            <img src="assets/primery-rabot/5.jpg" alt="Электрооборудование Электромир Казахстан" loading="lazy" class="gallery__img">
+            <img src="assets/primery-rabot/5.jpg" alt="Электрооборудование Электромир Казахстан" width="1680" height="1682" loading="lazy" class="gallery__img">
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem" tabindex="0" aria-label="Открыть фото 3">
-            <img src="assets/primery-rabot/7.jpg" alt="Щит этажный ЩЭ купить Алматы" loading="lazy" class="gallery__img">
+            <img src="assets/primery-rabot/7.jpg" alt="Щит этажный ЩЭ купить Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem" tabindex="0" aria-label="Открыть фото 4">
-            <img src="assets/primery-rabot/9.jpg" alt="Производство шкафов электрических Алматы" loading="lazy" class="gallery__img">
+            <img src="assets/primery-rabot/9.jpg" alt="Производство шкафов электрических Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem" tabindex="0" aria-label="Открыть фото 5">
-            <img src="assets/primery-rabot/10.jpg" alt="Электромир монтаж электрооборудования Алматы" loading="lazy" class="gallery__img">
+            <img src="assets/primery-rabot/10.jpg" alt="Электромир монтаж электрооборудования Алматы" width="757" height="1600" loading="lazy" class="gallery__img">
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem" tabindex="0" aria-label="Открыть фото 6">
-            <img src="assets/primery-rabot/11.jpg" alt="Электромир производство шкафов электрических Алматы" loading="lazy" class="gallery__img">
+            <img src="assets/primery-rabot/11.jpg" alt="Электромир производство шкафов электрических Алматы" width="1150" height="1600" loading="lazy" class="gallery__img">
           </figure>
         </div>
       </div>
@@ -278,25 +302,25 @@
         </p>
         <div class="partners__grid fade-up" aria-label="Логотипы партнёров">
           <div class="partner">
-            <img src="assets/companies/abb.png" alt="ABB — партнёр Электромир" loading="lazy">
+            <img src="assets/companies/abb.png" alt="ABB — партнёр Электромир" width="483" height="200" loading="lazy">
           </div>
           <div class="partner">
-            <img src="assets/companies/chint.png" alt="Chint — партнёр Электромир" loading="lazy">
+            <img src="assets/companies/chint.png" alt="Chint — партнёр Электромир" width="483" height="200" loading="lazy">
           </div>
           <div class="partner">
-            <img src="assets/companies/schneider.png" alt="Schneider Electric — партнёр Электромир" loading="lazy">
+            <img src="assets/companies/schneider.png" alt="Schneider Electric — партнёр Электромир" width="483" height="200" loading="lazy">
           </div>
           <div class="partner">
-            <img src="assets/companies/siemens.png" alt="Siemens — партнёр Электромир" loading="lazy">
+            <img src="assets/companies/siemens.png" alt="Siemens — партнёр Электромир" width="483" height="200" loading="lazy">
           </div>
           <div class="partner">
-            <img src="assets/companies/ekf.png" alt="EKF — партнёр Электромир" loading="lazy">
+            <img src="assets/companies/ekf.png" alt="EKF — партнёр Электромир" width="330" height="220" loading="lazy">
           </div>
           <div class="partner">
-            <img src="assets/companies/iek.png" alt="IEK — партнёр Электромир" loading="lazy" style="mix-blend-mode: multiply;">
+            <img src="assets/companies/iek.png" alt="IEK — партнёр Электромир" width="500" height="192" loading="lazy" style="mix-blend-mode: multiply;">
           </div>
           <div class="partner">
-            <img src="assets/companies/andeli.png" alt="Andeli — партнёр Электромир" loading="lazy">
+            <img src="assets/companies/andeli.png" alt="Andeli — партнёр Электромир" width="800" height="300" loading="lazy">
           </div>
         </div>
       </div>
@@ -316,7 +340,7 @@
 
           <article class="catalog-card fade-up">
             <div class="catalog-card__img">
-              <img src="assets/primery-rabot/vru.jpg" alt="Шкаф ВРУ — производство Электромир Алматы" loading="lazy">
+              <img src="assets/primery-rabot/vru.jpg" alt="Шкаф ВРУ — производство Электромир Алматы" width="607" height="768" loading="lazy">
               <span class="catalog-card__tag">ВРУ Алматы</span>
             </div>
             <div class="catalog-card__body">
@@ -336,7 +360,7 @@
 
           <article class="catalog-card fade-up" style="transition-delay:0.1s">
             <div class="catalog-card__img">
-              <img src="assets/primery-rabot/shit-etazh.jpg" alt="Щит этажный ЩЭ — производство Электромир Алматы" loading="lazy">
+              <img src="assets/primery-rabot/shit-etazh.jpg" alt="Щит этажный ЩЭ — производство Электромир Алматы" width="500" height="500" loading="lazy">
               <span class="catalog-card__tag">ЩЭ Алматы</span>
             </div>
             <div class="catalog-card__body">
@@ -356,7 +380,7 @@
 
           <article class="catalog-card fade-up" style="transition-delay:0.2s">
             <div class="catalog-card__img">
-              <img src="assets/primery-rabot/ktpn.png" alt="КТПН контейнерная трансформаторная подстанция Алматы" loading="lazy">
+              <img src="assets/primery-rabot/ktpn.webp" alt="КТПН контейнерная трансформаторная подстанция Алматы" width="1000" height="846" loading="lazy">
               <span class="catalog-card__tag">КТПН Алматы</span>
             </div>
             <div class="catalog-card__body">
@@ -376,7 +400,7 @@
 
           <article class="catalog-card fade-up" style="transition-delay:0.3s">
             <div class="catalog-card__img">
-              <img src="assets/primery-rabot/avr-yaou.jpg" alt="Щит автоматики АВР ЯОУ производство Алматы" loading="lazy">
+              <img src="assets/primery-rabot/avr-yaou.jpg" alt="Щит автоматики АВР ЯОУ производство Алматы" width="768" height="768" loading="lazy">
               <span class="catalog-card__tag">АВР Алматы</span>
             </div>
             <div class="catalog-card__body">
@@ -425,19 +449,19 @@
           <!-- Логотипы клиентов 2×2 -->
           <div class="projects__clients fade-up" aria-label="Ключевые клиенты Электромир">
             <div class="client-card">
-              <img src="assets/partners/bcn.png" alt="BCN Group — клиент Электромир" loading="lazy">
+              <img src="assets/partners/bcn.png" alt="BCN Group — клиент Электромир" width="225" height="225" loading="lazy">
               <span class="client-card__name">BCN Group</span>
             </div>
             <div class="client-card">
-              <img src="assets/partners/bazis.png" alt="BAZIS — клиент Электромир" loading="lazy">
+              <img src="assets/partners/bazis.png" alt="BAZIS — клиент Электромир" width="567" height="388" loading="lazy">
               <span class="client-card__name">BAZIS</span>
             </div>
             <div class="client-card">
-              <img src="assets/partners/mega.png" alt="Mega Alma-Ata — клиент Электромир" loading="lazy">
+              <img src="assets/partners/mega.png" alt="Mega Alma-Ata — клиент Электромир" width="476" height="476" loading="lazy">
               <span class="client-card__name">Mega Alma-Ata</span>
             </div>
             <div class="client-card">
-              <img src="assets/partners/magnum.png" alt="Magnum — клиент Электромир" loading="lazy">
+              <img src="assets/partners/magnum.png" alt="Magnum — клиент Электромир" width="2250" height="2250" loading="lazy">
               <span class="client-card__name">Magnum</span>
             </div>
           </div>
@@ -774,7 +798,7 @@
         <polyline points="15 18 9 12 15 6"/>
       </svg>
     </button>
-    <img class="lightbox__img" id="lightboxImg" src="" alt="">
+    <img class="lightbox__img" id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
     <button class="lightbox__next" id="lightboxNext" aria-label="Следующее фото">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="9 18 15 12 9 6"/>

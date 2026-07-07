@@ -75,12 +75,14 @@ const images = Array.from(galleryItems).map(item => {
 });
 
 let currentIndex = 0;
+let lightboxOpener = null; // элемент, с которого открыли лайтбокс — вернём на него фокус
 
 // Лайтбокс есть только на страницах с галереей — на продуктовых страницах пропускаем
 const hasLightbox = lightbox && lightboxImg && lightboxClose && lightboxPrev && lightboxNext;
 
 function openLightbox(index) {
   currentIndex = index;
+  lightboxOpener = document.activeElement;
   lightboxImg.src = images[index].src;
   lightboxImg.alt = images[index].alt;
   lightbox.hidden = false;
@@ -91,6 +93,9 @@ function openLightbox(index) {
 function closeLightbox() {
   lightbox.hidden = true;
   unlockScroll();
+  if (lightboxOpener && typeof lightboxOpener.focus === 'function') {
+    lightboxOpener.focus();
+  }
 }
 
 function showPrev() {
@@ -132,6 +137,21 @@ if (hasLightbox) {
     if (e.key === 'Escape')      closeLightbox();
     if (e.key === 'ArrowLeft')   showPrev();
     if (e.key === 'ArrowRight')  showNext();
+    // Ловушка фокуса: Tab не должен уходить за пределы модального окна
+    if (e.key === 'Tab') {
+      const focusables = [lightboxClose, lightboxPrev, lightboxNext];
+      const idx = focusables.indexOf(document.activeElement);
+      if (e.shiftKey && (idx <= 0)) {
+        e.preventDefault();
+        focusables[focusables.length - 1].focus();
+      } else if (!e.shiftKey && idx === focusables.length - 1) {
+        e.preventDefault();
+        focusables[0].focus();
+      } else if (idx === -1) {
+        e.preventDefault();
+        focusables[0].focus();
+      }
+    }
   });
 
   // Свайп на мобиле
@@ -156,6 +176,12 @@ if (hasLightbox) {
 (function () {
   var mapEl = document.getElementById('dgis-map');
   if (!mapEl) return;
+
+  var mapLoaded = false;
+
+  function loadMap() {
+    if (mapLoaded) return;
+    mapLoaded = true;
 
   var script = document.createElement('script');
   script.src = 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full';
@@ -194,6 +220,20 @@ if (hasLightbox) {
     });
   };
   document.head.appendChild(script);
+  }
+
+  // Загружаем тяжёлый API карты (~500 КБ) только когда блок приближается к вьюпорту
+  if ('IntersectionObserver' in window) {
+    var mapObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        mapObserver.disconnect();
+        loadMap();
+      }
+    }, { rootMargin: '600px 0px' });
+    mapObserver.observe(mapEl);
+  } else {
+    loadMap();
+  }
 }());
 
 // Cookie consent
@@ -208,6 +248,10 @@ if (hasLightbox) {
 
   btn.addEventListener('click', function () {
     localStorage.setItem('cookie_ok', '1');
+    // Согласие получено — разрешаем GA4 использовать куки аналитики
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
     // Снимаем CSS-анимацию — иначе она блокирует transition
     banner.style.animation = 'none';
     // Форс-reflow: браузер фиксирует текущее состояние (opacity:1)
