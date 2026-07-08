@@ -148,7 +148,7 @@
   <link rel="canonical" href="https://tookem.kz/" />
 
   <!-- Preload критических ресурсов -->
-  <link rel="preload" href="assets/primery-rabot/hero.jpg" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/primery-rabot/hero.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="assets/fonts/Uni Sans Heavy.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/NexaText-Light.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -197,8 +197,8 @@
 
       <nav class="header__nav" id="nav" aria-label="Основная навигация">
         <ul>
-          <li><a href="#partners">Партнёры</a></li>
           <li><a href="#journal">Каталог</a></li>
+          <li><a href="#partners">Партнёры</a></li>
           <li><a href="#benefits">Преимущества</a></li>
           <li><a href="#contact">Контакты</a></li>
         </ul>
@@ -218,6 +218,12 @@
         <span class="header__phone-text">+7 701 777 17 55</span>
       </a>
 
+      <button class="burger" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
   </header>
 
@@ -228,14 +234,17 @@
          ============================================================ -->
     <section class="hero" id="hero" aria-label="Главный баннер">
       <div class="hero__bg">
-        <img
-          src="assets/primery-rabot/hero.jpg"
-          alt="Производство электрооборудования Электромир Алматы"
-          class="hero__bg-img"
-          width="1680" height="1260"
-          loading="eager"
-          fetchpriority="high"
-        >
+        <picture>
+          <source srcset="assets/primery-rabot/hero.webp" type="image/webp">
+          <img
+            src="assets/primery-rabot/hero.jpg"
+            alt="Производство электрооборудования Электромир Алматы"
+            class="hero__bg-img"
+            width="1680" height="1260"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </picture>
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
       <div class="container hero__content">
@@ -269,23 +278,35 @@
           Шкафы ВРУ, щиты этажные и оборудование автоматики — собственное производство в Алматы.
         </p>
         <div class="gallery" role="list">
-          <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem" tabindex="0" aria-label="Открыть фото 1">
-            <img src="assets/primery-rabot/3.jpg" alt="Производство электрооборудования Электромир Алматы" width="1029" height="1600" loading="lazy" class="gallery__img">
+          <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem">
+            <button type="button" class="gallery__btn" aria-label="Открыть фото 1 в полноэкранном просмотре">
+              <img src="assets/primery-rabot/3.jpg" alt="Производство электрооборудования Электромир Алматы" width="1029" height="1600" loading="lazy" class="gallery__img">
+            </button>
           </figure>
-          <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem" tabindex="0" aria-label="Открыть фото 2">
-            <img src="assets/primery-rabot/5.jpg" alt="Электрооборудование Электромир Казахстан" width="1680" height="1682" loading="lazy" class="gallery__img">
+          <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem">
+            <button type="button" class="gallery__btn" aria-label="Открыть фото 2 в полноэкранном просмотре">
+              <img src="assets/primery-rabot/5.jpg" alt="Электрооборудование Электромир Казахстан" width="1680" height="1682" loading="lazy" class="gallery__img">
+            </button>
           </figure>
-          <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem" tabindex="0" aria-label="Открыть фото 3">
-            <img src="assets/primery-rabot/7.jpg" alt="Щит этажный ЩЭ купить Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
+          <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem">
+            <button type="button" class="gallery__btn" aria-label="Открыть фото 3 в полноэкранном просмотре">
+              <img src="assets/primery-rabot/7.jpg" alt="Щит этажный ЩЭ купить Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
+            </button>
           </figure>
-          <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem" tabindex="0" aria-label="Открыть фото 4">
-            <img src="assets/primery-rabot/9.jpg" alt="Производство шкафов электрических Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
+          <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem">
+            <button type="button" class="gallery__btn" aria-label="Открыть фото 4 в полноэкранном просмотре">
+              <img src="assets/primery-rabot/9.jpg" alt="Производство шкафов электрических Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
+            </button>
           </figure>
-          <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem" tabindex="0" aria-label="Открыть фото 5">
-            <img src="assets/primery-rabot/10.jpg" alt="Электромир монтаж электрооборудования Алматы" width="757" height="1600" loading="lazy" class="gallery__img">
+          <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem">
+            <button type="button" class="gallery__btn" aria-label="Открыть фото 5 в полноэкранном просмотре">
+              <img src="assets/primery-rabot/10.jpg" alt="Электромир монтаж электрооборудования Алматы" width="757" height="1600" loading="lazy" class="gallery__img">
+            </button>
           </figure>
-          <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem" tabindex="0" aria-label="Открыть фото 6">
-            <img src="assets/primery-rabot/11.jpg" alt="Электромир производство шкафов электрических Алматы" width="1150" height="1600" loading="lazy" class="gallery__img">
+          <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem">
+            <button type="button" class="gallery__btn" aria-label="Открыть фото 6 в полноэкранном просмотре">
+              <img src="assets/primery-rabot/11.jpg" alt="Электромир производство шкафов электрических Алматы" width="1150" height="1600" loading="lazy" class="gallery__img">
+            </button>
           </figure>
         </div>
       </div>
@@ -733,6 +754,38 @@
             </div>
           </div>
 
+        </div>
+
+        <!-- Форма заявки: открывает готовое письмо в почтовом клиенте -->
+        <div class="contact-form-block fade-up">
+          <h3 class="contact-form__title">Заявка на расчёт</h3>
+          <p class="contact-form__lead">
+            Опишите задачу — подготовим коммерческое предложение под ваш объект.
+            Удобнее по почте, чем в мессенджере? Эта форма для вас.
+          </p>
+          <form class="contact-form" id="requestForm">
+            <div class="contact-form__grid">
+              <label class="contact-form__field">
+                <span class="contact-form__label">Имя или компания</span>
+                <input class="contact-form__input" type="text" name="name" autocomplete="organization" required>
+              </label>
+              <label class="contact-form__field">
+                <span class="contact-form__label">Телефон или e-mail для ответа</span>
+                <input class="contact-form__input" type="text" name="contact" autocomplete="tel" required>
+              </label>
+            </div>
+            <label class="contact-form__field">
+              <span class="contact-form__label">Что нужно изготовить</span>
+              <textarea class="contact-form__input contact-form__textarea" name="message" rows="4" placeholder="Например: ВРУ 250 А, 12 отходящих линий, IP54 — нужен расчёт по однолинейной схеме" required></textarea>
+            </label>
+            <div class="contact-form__footer">
+              <button type="submit" class="btn-primary">Отправить заявку</button>
+              <p class="contact-form__hint">
+                Кнопка откроет готовое письмо в вашем почтовом клиенте на адрес
+                <a href="mailto:info@tookem.kz">info@tookem.kz</a> — схему или ТЗ приложите к письму.
+              </p>
+            </div>
+          </form>
         </div>
 
         <!-- 2GIS интерактивная карта -->

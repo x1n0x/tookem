@@ -46,6 +46,8 @@
   --color-bg:           #F5F4F0;
   --color-bg-section:   #ECEAE3;
   --color-green:        #579C46;
+  /* Затемнённый зелёный для мелких надписей на светлом фоне — контраст 4.5:1 (AA) */
+  --color-green-text:   #417535;
   --color-green-light:  #80C26B;
   --color-blue:         #223E85;
   --color-blue-light:   #6E8FD4;
@@ -141,7 +143,7 @@ address { font-style: normal; }
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-green);
+  color: var(--color-green-text);
   margin-bottom: 0.875rem;
 }
 
@@ -381,19 +383,23 @@ header.scrolled {
   display: none;
 }
 
-/* Бургер — скрыт (навигация через скролл, мобильная кнопка снизу) */
+/* Бургер — мобильная навигация (на 768px+ скрыт, там desktop-nav) */
 .burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-shrink: 0;
-  width: 26px;
-  height: 18px;
+  /* Тач-зона 44x44 при визуальных линиях 26x18 */
+  width: 44px;
+  height: 44px;
+  padding: 13px 9px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  position: relative;
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1001;
 }
 
@@ -415,6 +421,11 @@ header.scrolled {
 
 .burger.active span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Крестик поверх тёмного оверлея — линии белые */
+.burger.active span {
+  background: var(--color-white);
 }
 
 /* Мобильный nav overlay */
@@ -469,6 +480,13 @@ header.scrolled {
   inset: 0;
   z-index: 0;
   overflow: hidden;
+}
+
+/* picture-обёртка (webp + jpg) не должна влиять на раскладку */
+.hero__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero__bg-img {
@@ -538,12 +556,23 @@ header.scrolled {
   transition: transform 0.45s ease;
 }
 
+/* Кнопка внутри карточки — нативная клавиатура и семантика */
+.gallery__btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
 .gallery__item:hover .gallery__img,
-.gallery__item:focus-visible .gallery__img {
+.gallery__btn:focus-visible .gallery__img {
   transform: scale(1.05);
 }
 
-.gallery__item:focus-visible {
+.gallery__btn:focus-visible {
   outline: 2px solid var(--color-green);
   outline-offset: 3px;
 }
@@ -661,7 +690,7 @@ header.scrolled {
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-green);
+  color: var(--color-green-text);
   margin-bottom: 1.1rem;
 }
 
@@ -1340,6 +1369,7 @@ header.scrolled {
     padding-bottom: calc(58px + env(safe-area-inset-bottom));
   }
 
+
   /* ── HERO ── */
   /* "электрооборудования" при 2.2rem = 35px не влезает в 361px на iPhone 15 */
   .hero__title {
@@ -1423,7 +1453,8 @@ header.scrolled {
 
   .header__phone {
     position: absolute;
-    right: 1rem;
+    /* Справа теперь бургер — телефон сдвинут левее */
+    right: 3.4rem;
     margin-left: 0;
   }
 
@@ -2056,7 +2087,7 @@ header.scrolled {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-green);
+  color: var(--color-green-text);
   margin-bottom: 0.8rem;
 }
 
@@ -2396,6 +2427,105 @@ header.scrolled {
   }
   .pd-related__card,
   .pd-faq__item summary::after { transition: none; }
+}
+
+/* ============================================================
+   ФОРМА ЗАЯВКИ
+   ============================================================ */
+.contact-form-block {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .contact-form-block { padding: 2.5rem; }
+}
+
+.contact-form__title {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form__lead {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 62ch;
+}
+
+.contact-form__grid {
+  display: grid;
+  gap: 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .contact-form__grid { grid-template-columns: 1fr 1fr; }
+}
+
+.contact-form__field {
+  display: block;
+  margin-bottom: 1.1rem;
+}
+
+.contact-form__label {
+  display: block;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.contact-form__input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-text);
+  transition: border-color 0.2s ease;
+}
+
+.contact-form__input:focus {
+  outline: none;
+  border-color: var(--color-green);
+}
+
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-form__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.contact-form__hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 48ch;
+}
+
+.contact-form__hint a {
+  color: var(--color-green-text);
+  font-weight: 700;
 }
 
 /* ============================================================

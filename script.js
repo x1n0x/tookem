@@ -39,6 +39,36 @@ function unlockScroll() {
 }
 
 // ============================================================
+// БУРГЕР-МЕНЮ — мобильная навигация (оверлей .header__nav.open)
+// ============================================================
+const navToggle = document.getElementById('navToggle');
+const nav = document.getElementById('nav');
+
+function setMenu(open) {
+  nav.classList.toggle('open', open);
+  navToggle.classList.toggle('active', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+  navToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  if (open) { lockScroll(); } else { unlockScroll(); }
+}
+
+if (navToggle && nav) {
+  navToggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+
+  // Выбор пункта закрывает оверлей (иначе якорь скроллит под ним)
+  nav.addEventListener('click', e => {
+    if (e.target.closest('a') && nav.classList.contains('open')) setMenu(false);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      setMenu(false);
+      navToggle.focus();
+    }
+  });
+}
+
+// ============================================================
 // INTERSECTION OBSERVER — анимация .fade-up
 // ============================================================
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -88,9 +118,10 @@ let lightboxOpener = null; // элемент, с которого открыли
 // Лайтбокс есть только на страницах с галереей — на продуктовых страницах пропускаем
 const hasLightbox = lightbox && lightboxImg && lightboxClose && lightboxPrev && lightboxNext;
 
-function openLightbox(index) {
+function openLightbox(index, opener) {
   currentIndex = index;
-  lightboxOpener = document.activeElement;
+  // Safari не фокусирует кнопки по клику — источник передаём явно
+  lightboxOpener = opener || document.activeElement;
   lightboxImg.src = images[index].src;
   lightboxImg.alt = images[index].alt;
   lightbox.hidden = false;
@@ -119,15 +150,9 @@ function showNext() {
 }
 
 if (hasLightbox) {
-  // Открытие по клику и Enter/Space
-  galleryItems.forEach((item, i) => {
-    item.addEventListener('click', () => openLightbox(i));
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openLightbox(i);
-      }
-    });
+  // Карточки — настоящие кнопки: клик и клавиатура работают нативно
+  document.querySelectorAll('.gallery__btn').forEach((btn, i) => {
+    btn.addEventListener('click', () => openLightbox(i, btn));
   });
 
   lightboxClose.addEventListener('click', closeLightbox);
@@ -248,6 +273,29 @@ if (hasLightbox) {
   } else {
     loadMap();
   }
+}());
+
+// ============================================================
+// ФОРМА ЗАЯВКИ — без бэкенда: собирает письмо и открывает
+// почтовый клиент на info@tookem.kz
+// ============================================================
+(function () {
+  var form = document.getElementById('requestForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    var subject = 'Заявка с сайта tookem.kz';
+    var body =
+      'Имя / компания: ' + data.get('name') + '\n' +
+      'Контакт: ' + data.get('contact') + '\n\n' +
+      'Задача:\n' + data.get('message') + '\n\n' +
+      '(Схему или ТЗ можно приложить к этому письму)';
+    window.location.href = 'mailto:info@tookem.kz' +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+  });
 }());
 
 // Cookie consent

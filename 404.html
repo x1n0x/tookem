@@ -129,10 +129,10 @@
         </span>
       </a>
 
-      <nav class="header__nav" aria-label="Основная навигация">
+      <nav class="header__nav" id="nav" aria-label="Основная навигация">
         <ul>
-          <li><a href="/#partners">Партнёры</a></li>
           <li><a href="/#journal">Каталог</a></li>
+          <li><a href="/#partners">Партнёры</a></li>
           <li><a href="/#benefits">Преимущества</a></li>
           <li><a href="/#contact">Контакты</a></li>
         </ul>
@@ -144,6 +144,11 @@
         </svg>
         <span class="header__phone-text">+7 701 777 17 55</span>
       </a>
+      <button class="burger" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -198,5 +203,6 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
