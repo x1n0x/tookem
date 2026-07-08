@@ -5,9 +5,15 @@
 // ============================================================
 const header = document.getElementById('header');
 
-window.addEventListener('scroll', () => {
+function syncHeaderShadow() {
   header.classList.toggle('scrolled', window.scrollY > 80);
-}, { passive: true });
+}
+
+if (header) {
+  window.addEventListener('scroll', syncHeaderShadow, { passive: true });
+  // Перезагрузка посреди страницы / переход по якорю — состояние сразу актуальное
+  syncHeaderShadow();
+}
 
 // ============================================================
 // SCROLL LOCK — используется лайтбоксом (iOS Safari fix)
@@ -53,9 +59,11 @@ heroFadeEls.forEach((el, i) => {
   setTimeout(() => el.classList.add('visible'), 150 + i * 120);
 });
 
-// Все остальные .fade-up — через Intersection Observer
-document.querySelectorAll('.fade-up:not(.hero .fade-up)').forEach(el => {
-  fadeObserver.observe(el);
+// Все остальные .fade-up — через Intersection Observer.
+// Сложный селектор внутри :not() ломает querySelectorAll в старых браузерах,
+// поэтому фильтруем через closest — работает везде, где есть IntersectionObserver.
+document.querySelectorAll('.fade-up').forEach(el => {
+  if (!el.closest('.hero')) fadeObserver.observe(el);
 });
 
 // ============================================================
@@ -186,6 +194,12 @@ if (hasLightbox) {
   var script = document.createElement('script');
   script.src = 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full';
   script.async = true;
+  // API недоступен (блокировщик, сбой сети) — прячем пустой серый блок,
+  // ссылки «Открыть в 2ГИС / Яндекс Карты» над картой остаются
+  script.onerror = function () {
+    mapLoaded = false;
+    mapEl.style.display = 'none';
+  };
   script.onload = function () {
     DG.then(function () {
       var lat = 43.24763;
@@ -261,5 +275,7 @@ if (hasLightbox) {
     banner.addEventListener('transitionend', function () {
       banner.hidden = true;
     }, { once: true });
+    // Страховка: если transitionend не сработал (reduced motion, скрытая вкладка)
+    setTimeout(function () { banner.hidden = true; }, 700);
   });
 }());
