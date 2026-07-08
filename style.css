@@ -389,10 +389,10 @@ header.scrolled {
   flex-direction: column;
   justify-content: space-between;
   flex-shrink: 0;
-  /* Тач-зона 44x44 при визуальных линиях 26x18 */
+  /* Тач-зона 44x44 при визуальных линиях 20x14 */
   width: 44px;
   height: 44px;
-  padding: 13px 9px;
+  padding: 15px 12px;
   background: none;
   border: none;
   cursor: pointer;
@@ -400,19 +400,20 @@ header.scrolled {
   right: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1001;
+  /* Выше оверлея меню (1002) и кнопок почты/телефона (1001) */
+  z-index: 1003;
 }
 
 .burger span {
   display: block;
   height: 2px;
   background: var(--color-text);
-  border-radius: 1px;
+  border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .burger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .burger.active span:nth-child(2) {
@@ -420,7 +421,7 @@ header.scrolled {
 }
 
 .burger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Крестик поверх тёмного оверлея — линии белые */
@@ -428,7 +429,7 @@ header.scrolled {
   background: var(--color-white);
 }
 
-/* Мобильный nav overlay */
+/* Мобильный nav overlay — выше кнопок почты (1001) и телефона, ниже бургера (1003) */
 .header__nav.open {
   display: flex;
   position: fixed;
@@ -437,7 +438,7 @@ header.scrolled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1002;
 }
 
 .header__nav.open ul {
