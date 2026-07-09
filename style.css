@@ -2551,6 +2551,104 @@ header.scrolled {
 }
 
 /* ============================================================
+   О КОМПАНИИ — карточки объектов и принципы с пояснениями
+   ============================================================ */
+.about-objects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+@media (min-width: 640px) {
+  .about-objects { grid-template-columns: 1fr 1fr; }
+}
+
+.about-object {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.15rem 1.3rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.about-object:hover {
+  border-color: var(--color-green);
+  transform: translateY(-2px);
+}
+
+.about-object__type {
+  display: block;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-green-text);
+  margin-bottom: 0.4rem;
+}
+
+.about-object__name {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.about-principles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 2.75rem;
+}
+
+@media (min-width: 600px) {
+  .about-principles { grid-template-columns: 1fr 1fr; }
+}
+
+.about-principles li {
+  position: relative;
+  padding: 1rem 0 1rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-principles li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: var(--color-green);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 3 14 12 14 11 22 21 10 12 10Z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 3 14 12 14 11 22 21 10 12 10Z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+@media (min-width: 600px) {
+  .about-principles li:nth-last-child(-n+2):nth-child(odd),
+  .about-principles li:last-child { border-bottom: none; }
+}
+
+@media (max-width: 599px) {
+  .about-principles li:last-child { border-bottom: none; }
+}
+
+.about-principle__title {
+  display: block;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  margin-bottom: 0.3rem;
+}
+
+.about-principle__text {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
    ОТЗЫВЫ 2ГИС
    ============================================================ */
 .reviews-list {
