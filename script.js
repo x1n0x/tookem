@@ -66,6 +66,17 @@ if (navToggle && nav) {
       navToggle.focus();
     }
   });
+
+  // Поворот/ресайз в десктоп: закрываем оверлей и снимаем scroll-lock
+  const desktopMq = window.matchMedia('(min-width: 768px)');
+  const onDesktopSwitch = e => {
+    if (e.matches && nav.classList.contains('open')) setMenu(false);
+  };
+  if (desktopMq.addEventListener) {
+    desktopMq.addEventListener('change', onDesktopSwitch);
+  } else {
+    desktopMq.addListener(onDesktopSwitch); // старые Safari
+  }
 }
 
 // ============================================================

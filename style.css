@@ -397,7 +397,8 @@ header.scrolled {
   border: none;
   cursor: pointer;
   position: absolute;
-  right: 0.4rem;
+  /* Линии визуально в 1rem от края — зеркально кнопке почты слева */
+  right: 0.25rem;
   top: 50%;
   transform: translateY(-50%);
   /* Выше оверлея меню (1002) и кнопок почты/телефона (1001) */
@@ -429,32 +430,41 @@ header.scrolled {
   background: var(--color-white);
 }
 
-/* Мобильный nav overlay — выше кнопок почты (1001) и телефона, ниже бургера (1003) */
-.header__nav.open {
-  display: flex;
-  position: fixed;
-  inset: 0;
-  background: rgba(30, 28, 26, 0.97);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1002;
+/* Мобильный nav overlay — выше кнопок почты (1001) и телефона, ниже бургера (1003).
+   Только на мобиле: на десктопе класс .open не должен превращать nav в оверлей */
+@media (max-width: 767px) {
+  .header__nav.open {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 28, 26, 0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    animation: nav-fade-in 0.25s ease;
+  }
+
+  .header__nav.open ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .header__nav.open a {
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+    color: var(--color-white);
+  }
+
+  .header__nav.open a:hover {
+    color: var(--color-green-light);
+  }
 }
 
-.header__nav.open ul {
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.header__nav.open a {
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  color: var(--color-white);
-}
-
-.header__nav.open a:hover {
-  color: var(--color-green-light);
+@keyframes nav-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ============================================================
@@ -1453,10 +1463,9 @@ header.scrolled {
   }
 
   .header__phone {
-    position: absolute;
-    /* Справа теперь бургер — телефон сдвинут левее */
-    right: 3.4rem;
-    margin-left: 0;
+    /* На мобиле звонок дублируется нижней панелью — в шапке только
+       почта слева, лого по центру и бургер справа */
+    display: none;
   }
 
   .header__email {
@@ -1582,7 +1591,9 @@ header.scrolled {
   bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999;
+  /* Над mobile-bar (998), но под шапкой (1000): header — stacking context,
+     поэтому меню внутри него глобально тоже на уровне 1000 */
+  z-index: 999;
   width: calc(100% - 2rem);
   max-width: 600px;
   background: var(--color-white);
@@ -2426,6 +2437,7 @@ header.scrolled {
     transition: none;
     will-change: auto;
   }
+  .header__nav.open { animation: none; }
   .pd-related__card,
   .pd-faq__item summary::after { transition: none; }
 }
