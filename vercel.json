@@ -1,12 +1,6 @@
 {
   "trailingSlash": false,
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/yandex_eb1fa983ad761df2.html",
-      "destination": "/yandex_eb1fa983ad761df2"
-    }
-  ],
   "redirects": [
     {
       "source": "/:path*",
