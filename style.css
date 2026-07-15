@@ -925,6 +925,51 @@ header.scrolled {
 }
 
 /* Строка действий внизу карточки */
+/* Шапка карточки: название + номер позиции как в номенклатуре */
+.catalog-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.catalog-card__num {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(87, 156, 70, 0.22);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* Мини-спецификация — каталожные строки характеристик */
+.catalog-card__specs {
+  margin-top: 1.1rem;
+}
+
+.catalog-card__specs li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.catalog-card__specs li span:first-child {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.catalog-card__specs li span:last-child {
+  font-weight: 700;
+  text-align: right;
+}
+
 .catalog-card__actions {
   display: flex;
   flex-direction: column;
