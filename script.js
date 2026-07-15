@@ -309,6 +309,33 @@ if (hasLightbox) {
   });
 }());
 
+// ============================================================
+// ЦЕЛИ АНАЛИТИКИ — клики по контактам и отправка формы.
+// Уходят и в Метрику (reachGoal), и в GA4 (event) с одним именем.
+// ============================================================
+(function () {
+  function goal(name) {
+    try {
+      if (typeof ym === 'function') ym(97753570, 'reachGoal', name);
+      if (typeof gtag === 'function') gtag('event', name);
+    } catch (e) {}
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('tel:') === 0) goal('click_phone');
+    else if (href.indexOf('mailto:') === 0) goal('click_email');
+    else if (href.indexOf('api.whatsapp.com') !== -1) goal('click_whatsapp');
+  });
+
+  var requestFormGoal = document.getElementById('requestForm');
+  if (requestFormGoal) {
+    requestFormGoal.addEventListener('submit', function () { goal('form_submit'); });
+  }
+}());
+
 // Cookie consent
 (function () {
   var banner = document.getElementById('cookieBanner');
