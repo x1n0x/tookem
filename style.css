@@ -430,6 +430,18 @@ header.scrolled {
   background: var(--color-white);
 }
 
+/* Контакты внутри nav — видны только в открытом мобильном оверлее */
+.header__nav-extra {
+  display: none;
+}
+
+/* Плавный кроссфейд между страницами (Chrome/Safari; остальные — мгновенно) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 /* Мобильный nav overlay — выше кнопок почты (1001) и телефона, ниже бургера (1003).
    До 1099px включительно: с 1100px меню в шапке и .open не должен превращать nav в оверлей */
 @media (max-width: 1099px) {
@@ -458,6 +470,31 @@ header.scrolled {
   }
 
   .header__nav.open a:hover {
+    color: var(--color-green-light);
+  }
+
+  /* Телефон и WhatsApp внизу открытого меню */
+  .header__nav.open .header__nav-extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .header__nav.open .header__nav-phone {
+    font-family: var(--font-main);
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: var(--color-white);
+  }
+
+  .header__nav.open .header__nav-wa {
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--color-green-light);
   }
 }
