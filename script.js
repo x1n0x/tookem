@@ -68,7 +68,7 @@ if (navToggle && nav) {
   });
 
   // Поворот/ресайз в десктоп: закрываем оверлей и снимаем scroll-lock
-  const desktopMq = window.matchMedia('(min-width: 768px)');
+  const desktopMq = window.matchMedia('(min-width: 1100px)');
   const onDesktopSwitch = e => {
     if (e.matches && nav.classList.contains('open')) setMenu(false);
   };

@@ -431,8 +431,8 @@ header.scrolled {
 }
 
 /* Мобильный nav overlay — выше кнопок почты (1001) и телефона, ниже бургера (1003).
-   Только на мобиле: на десктопе класс .open не должен превращать nav в оверлей */
-@media (max-width: 767px) {
+   До 1099px включительно: с 1100px меню в шапке и .open не должен превращать nav в оверлей */
+@media (max-width: 1099px) {
   .header__nav.open {
     display: flex;
     position: fixed;
@@ -1490,14 +1490,11 @@ header.scrolled {
 @media (min-width: 768px) {
 
   /* Header */
-  .header__nav {
-    display: flex;
-    margin-left: auto;
-  }
-
+  /* На планшете (768–1099px) меню остаётся в бургере: шесть пунктов
+     не помещаются в строку рядом с логотипом и телефоном */
   .header__phone {
     position: static;
-    margin-left: 2rem;
+    margin-left: auto;
   }
 
   .header__phone-text {
@@ -1505,7 +1502,9 @@ header.scrolled {
   }
 
   .burger {
-    display: none;
+    position: static;
+    transform: none;
+    margin-left: 0.25rem;
   }
 
   .header__logo {
@@ -1520,6 +1519,25 @@ header.scrolled {
   .header__inner {
     gap: 1.5rem;
   }
+}
+
+/* Десктоп ≥1100px: полноценное меню в шапке, бургер скрыт */
+@media (min-width: 1100px) {
+  .header__nav {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .header__phone {
+    margin-left: 2rem;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
 
   /* Gallery */
   .gallery {
@@ -2564,6 +2582,7 @@ header.scrolled {
 }
 
 .about-object {
+  display: block;
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 12px;
@@ -2592,6 +2611,15 @@ header.scrolled {
   font-size: 0.98rem;
   line-height: 1.5;
   color: var(--color-text);
+}
+
+/* Описание в карточке-ссылке (список статей) */
+.about-object__desc {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 .about-principles {
