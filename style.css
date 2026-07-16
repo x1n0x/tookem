@@ -1032,6 +1032,25 @@ header.scrolled {
   color: var(--color-white);
 }
 
+/* Ссылка на статью справочника — третичное действие карточки */
+.catalog-card__article {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  margin-top: 0.15rem;
+  font-size: 0.83rem;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(30, 28, 26, 0.22);
+  transition: color 0.2s ease;
+}
+
+.catalog-card__article:hover {
+  color: var(--color-green-text);
+  text-decoration-color: currentColor;
+}
+
 .catalog__cta {
   text-align: center;
 }
@@ -2129,6 +2148,15 @@ header.scrolled {
 }
 
 /* Изображение продукта в hero */
+/* Статьи: текстовый хиро без фото — справочник визуально отличается от товара */
+.pd-hero--article .pd-hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.pd-hero--article .pd-hero__lead {
+  max-width: 58ch;
+}
+
 .pd-hero__media {
   position: relative;
   border-radius: 14px;
