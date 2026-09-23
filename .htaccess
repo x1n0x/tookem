@@ -15,7 +15,9 @@ ErrorDocument 404 /404.html
   RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?]
   RewriteRule ^ / [R=301,L]
 
-  # /page.html -> /page (только прямой запрос, не внутренний rewrite)
+  # /page.html -> /page (только прямой запрос, не внутренний rewrite);
+  # файлы подтверждения Яндекса/Google и 404.html должны отдаваться как есть
+  RewriteCond %{REQUEST_URI} !^/(yandex_|google|404\.html)
   RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)\.html[\s?]
   RewriteRule ^ /%1 [R=301,L]
 
@@ -27,6 +29,7 @@ ErrorDocument 404 /404.html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteCond $1 !^404$
   RewriteRule ^([^./]+)$ $1.html [L]
 </IfModule>
 
