@@ -1,0 +1,39 @@
+# Хостинг Plesk (nginx + Apache): здесь то, что на Vercel делал vercel.json
+
+Options -MultiViews -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www -> без www (http -> https Plesk делает сам)
+  RewriteCond %{HTTP_HOST} ^www\.tookem\.kz$ [NC]
+  RewriteRule ^(.*)$ https://tookem.kz/$1 [R=301,L]
+
+  # /index и /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?]
+  RewriteRule ^ / [R=301,L]
+
+  # /page.html -> /page (только прямой запрос, не внутренний rewrite)
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)\.html[\s?]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # /page/ -> /page
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # /page -> page.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^./]+)$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), payment=()"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://mc.yandex.ru https://mc.yandex.com https://maps.api.2gis.ru https://*.2gis.com https://*.2gis.ru; style-src 'self' 'unsafe-inline' https://*.2gis.com https://*.2gis.ru; img-src 'self' data: blob: https://*.2gis.com https://*.2gis.ru https://*.2gis.kz https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://mc.yandex.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://mc.yandex.ru https://mc.yandex.com https://mc.webvisor.org https://*.2gis.com https://*.2gis.ru https://*.2gis.kz; frame-src 'self' https://mc.yandex.ru https://mc.yandex.com; worker-src 'self' blob:; upgrade-insecure-requests"
+</IfModule>
