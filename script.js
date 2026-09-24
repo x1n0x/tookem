@@ -46,6 +46,7 @@ const nav = document.getElementById('nav');
 
 function setMenu(open) {
   nav.classList.toggle('open', open);
+  if (header) header.classList.toggle('menu-open', open);
   navToggle.classList.toggle('active', open);
   navToggle.setAttribute('aria-expanded', String(open));
   navToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');

@@ -255,6 +255,13 @@ header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+
+  /* backdrop-filter делает шапку контейнером для position: fixed —
+     оверлей меню сжимался бы до её высоты. При открытом меню blur снимаем */
+  header.menu-open {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 header.scrolled {
