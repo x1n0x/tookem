@@ -121,7 +121,8 @@ const lightboxNext  = document.getElementById('lightboxNext');
 // Собираем массив изображений из галереи
 const images = Array.from(galleryItems).map(item => {
   const img = item.querySelector('.gallery__img');
-  return { src: img.src, alt: img.alt };
+  // В сетке — лёгкое превью, в лайтбоксе — полный размер из data-full
+  return { src: img.dataset.full || img.src, alt: img.alt };
 });
 
 let currentIndex = 0;
@@ -295,18 +296,50 @@ if (hasLightbox) {
   var form = document.getElementById('requestForm');
   if (!form) return;
 
+  var status = document.getElementById('requestFormStatus');
+  var button = form.querySelector('button[type="submit"]');
+
+  function showStatus(html, isError) {
+    status.innerHTML = html;
+    status.classList.toggle('is-error', isError);
+    status.hidden = false;
+  }
+
+  // Сервер не принял заявку — не теряем её: тот же текст в WhatsApp или письмом
+  function showFallback(data) {
+    var text =
+      'Заявка с сайта tookem.kz\n' +
+      'Имя / компания: ' + data.get('name') + '\n' +
+      'Контакт: ' + data.get('contact') + '\n\n' +
+      data.get('message');
+    var wa = 'https://api.whatsapp.com/send/?phone=77017771755&text=' + encodeURIComponent(text);
+    var mail = 'mailto:info@tookem.kz?subject=' + encodeURIComponent('Заявка с сайта tookem.kz') +
+      '&body=' + encodeURIComponent(text);
+    showStatus(
+      'Заявка не отправилась с сайта. Ваш текст сохранён — отправьте его ' +
+      '<a href="' + wa + '" target="_blank" rel="noopener noreferrer">в WhatsApp</a> или ' +
+      '<a href="' + mail + '">письмом на info@tookem.kz</a>, либо позвоните: ' +
+      '<a href="tel:+77017771755">+7 701 777 17 55</a>.',
+      true
+    );
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var data = new FormData(form);
-    var subject = 'Заявка с сайта tookem.kz';
-    var body =
-      'Имя / компания: ' + data.get('name') + '\n' +
-      'Контакт: ' + data.get('contact') + '\n\n' +
-      'Задача:\n' + data.get('message') + '\n\n' +
-      '(Схему или ТЗ можно приложить к этому письму)';
-    window.location.href = 'mailto:info@tookem.kz' +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
+    button.disabled = true;
+    status.hidden = true;
+
+    fetch(form.action, { method: 'POST', body: data })
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        if (!json.ok) throw new Error(json.error);
+        form.reset();
+        showStatus('Заявка отправлена. Свяжемся с вами по указанному контакту.', false);
+        form.dispatchEvent(new Event('request-sent'));
+      })
+      .catch(function () { showFallback(data); })
+      .then(function () { button.disabled = false; });
   });
 }());
 
@@ -333,7 +366,8 @@ if (hasLightbox) {
 
   var requestFormGoal = document.getElementById('requestForm');
   if (requestFormGoal) {
-    requestFormGoal.addEventListener('submit', function () { goal('form_submit'); });
+    // Цель — только когда заявка реально ушла на сервер
+    requestFormGoal.addEventListener('request-sent', function () { goal('form_submit'); });
   }
 }());
 

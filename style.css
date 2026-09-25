@@ -2707,6 +2707,39 @@ header.scrolled {
   font-weight: 700;
 }
 
+/* Поле-ловушка для ботов: убрано с экрана, но остаётся в форме */
+.contact-form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form .btn-primary[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* Результат отправки: успех — зелёная черта, сбой — синяя и запасные способы */
+.contact-form__status {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--color-green);
+  background: var(--color-bg);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contact-form__status.is-error {
+  border-left-color: var(--color-blue);
+}
+
+.contact-form__status a {
+  color: var(--color-green-text);
+  font-weight: 700;
+}
+
 /* ============================================================
    О КОМПАНИИ — карточки объектов и принципы с пояснениями
    ============================================================ */

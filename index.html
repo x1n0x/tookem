@@ -104,7 +104,7 @@
   <link rel="preload" href="assets/fonts/Uni Sans Heavy.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/NexaText-Light.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="style.css?v=20260924">
+  <link rel="stylesheet" href="style.css?v=20260925">
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X752G2W1D5"></script>
@@ -250,32 +250,32 @@
         <div class="gallery" role="list">
           <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem">
             <button type="button" class="gallery__btn" aria-label="Открыть фото 1 в полноэкранном просмотре">
-              <img src="assets/primery-rabot/3.jpg" alt="Производство электрооборудования Электромир Алматы" width="1029" height="1600" loading="lazy" class="gallery__img">
+              <img src="assets/primery-rabot/3-sm.webp" data-full="assets/primery-rabot/3.webp" alt="Вводной шкаф в цехе перед установкой двери: вводной автомат, счётчик и групповые автоматы на шинах" width="1029" height="1600" loading="lazy" class="gallery__img">
             </button>
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem">
             <button type="button" class="gallery__btn" aria-label="Открыть фото 2 в полноэкранном просмотре">
-              <img src="assets/primery-rabot/5.jpg" alt="Электрооборудование Электромир Казахстан" width="1680" height="1682" loading="lazy" class="gallery__img">
+              <img src="assets/primery-rabot/5-sm.webp" data-full="assets/primery-rabot/5.webp" alt="Две КТПН в синем корпусе с отсеком РУ-0,4 кВ на площадке производства" width="1680" height="1682" loading="lazy" class="gallery__img">
             </button>
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem">
             <button type="button" class="gallery__btn" aria-label="Открыть фото 3 в полноэкранном просмотре">
-              <img src="assets/primery-rabot/7.jpg" alt="Щит этажный ЩЭ купить Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
+              <img src="assets/primery-rabot/7-sm.webp" data-full="assets/primery-rabot/7.webp" alt="Шкаф ВРУ с закрытыми панелями: рукоятки автоматов и счётчик на лицевой стороне" width="1200" height="1600" loading="lazy" class="gallery__img">
             </button>
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0s" role="listitem">
             <button type="button" class="gallery__btn" aria-label="Открыть фото 4 в полноэкранном просмотре">
-              <img src="assets/primery-rabot/9.jpg" alt="Производство шкафов электрических Алматы" width="1200" height="1600" loading="lazy" class="gallery__img">
+              <img src="assets/primery-rabot/9-sm.webp" data-full="assets/primery-rabot/9.webp" alt="Двухсекционный шкаф ВРУ, смонтированный в электрощитовой: вводные автоматы и отходящие линии" width="1200" height="1600" loading="lazy" class="gallery__img">
             </button>
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.1s" role="listitem">
             <button type="button" class="gallery__btn" aria-label="Открыть фото 5 в полноэкранном просмотре">
-              <img src="assets/primery-rabot/10.jpg" alt="Электромир монтаж электрооборудования Алматы" width="757" height="1600" loading="lazy" class="gallery__img">
+              <img src="assets/primery-rabot/10-sm.webp" data-full="assets/primery-rabot/10.webp" alt="Шкаф на два ввода с контакторами и автоматическими выключателями, дверь открыта" width="757" height="1600" loading="lazy" class="gallery__img">
             </button>
           </figure>
           <figure class="gallery__item fade-up" style="transition-delay:0.2s" role="listitem">
             <button type="button" class="gallery__btn" aria-label="Открыть фото 6 в полноэкранном просмотре">
-              <img src="assets/primery-rabot/11.jpg" alt="Электромир производство шкафов электрических Алматы" width="1150" height="1600" loading="lazy" class="gallery__img">
+              <img src="assets/primery-rabot/11-sm.webp" data-full="assets/primery-rabot/11.webp" alt="Распределительный щит: вводной автомат, медные шины и два ряда модульных автоматов" width="1150" height="1600" loading="lazy" class="gallery__img">
             </button>
           </figure>
         </div>
@@ -762,14 +762,14 @@
 
         </div>
 
-        <!-- Форма заявки: открывает готовое письмо в почтовом клиенте -->
+        <!-- Форма заявки: отправляется через send.php; если сервер не ответил — предлагает WhatsApp -->
         <div class="contact-form-block fade-up">
           <h3 class="contact-form__title">Заявка на расчёт</h3>
           <p class="contact-form__lead">
             Опишите задачу — подготовим коммерческое предложение под ваш объект.
             Удобнее по почте, чем в мессенджере? Эта форма для вас.
           </p>
-          <form class="contact-form" id="requestForm">
+          <form class="contact-form" id="requestForm" action="/send.php" method="post">
             <div class="contact-form__grid">
               <label class="contact-form__field">
                 <span class="contact-form__label">Имя или компания</span>
@@ -784,13 +784,18 @@
               <span class="contact-form__label">Что нужно изготовить</span>
               <textarea class="contact-form__input contact-form__textarea" name="message" rows="4" placeholder="Например: ВРУ 250 А, 12 отходящих линий, IP54 — нужен расчёт по однолинейной схеме" required></textarea>
             </label>
+            <!-- Ловушка для спам-ботов: людям не видна -->
+            <label class="contact-form__trap" aria-hidden="true">
+              Сайт <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </label>
             <div class="contact-form__footer">
               <button type="submit" class="btn-primary">Отправить заявку</button>
               <p class="contact-form__hint">
-                Кнопка откроет готовое письмо в вашем почтовом клиенте на адрес
-                <a href="mailto:info@tookem.kz">info@tookem.kz</a> — схему или ТЗ приложите к письму.
+                Заявка придёт на <a href="mailto:info@tookem.kz">info@tookem.kz</a>.
+                Схему или ТЗ пришлите туда же письмом.
               </p>
             </div>
+            <div class="contact-form__status" id="requestFormStatus" role="status" aria-live="polite" hidden></div>
           </form>
         </div>
 
@@ -899,6 +904,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260924"></script>
+  <script src="script.js?v=20260925"></script>
 </body>
 </html>
