@@ -1367,6 +1367,31 @@ header.scrolled {
   color: var(--color-green-light);
 }
 
+/* Адрес и часы работы — на каждой странице (коммерческий фактор Яндекса) */
+.footer__contacts span {
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Ссылки на разделы — сквозная перелинковка на всех страницах */
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.25rem;
+}
+
+.footer__nav a {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s ease;
+}
+
+.footer__nav a:hover {
+  color: var(--color-green-light);
+}
+
 /* ============================================================
    LIGHTBOX
    ============================================================ */
@@ -1703,11 +1728,29 @@ header.scrolled {
     gap: 5rem;
   }
 
-  /* Footer */
+  /* Footer: разделы первой строкой, ниже копирайт слева и контакты справа */
   .footer__inner {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem 2rem;
     text-align: left;
+  }
+
+  .footer__nav {
+    order: -1;
+    width: 100%;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer__copy {
+    flex: 1 1 300px;
+  }
+
+  .footer__contacts {
+    justify-content: flex-end;
   }
 
 }

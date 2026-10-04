@@ -2,6 +2,9 @@
 
 Options -MultiViews -Indexes
 DirectoryIndex index.html
+# Кодировка в заголовке Content-Type (Яндекс определяет её по заголовку раньше, чем по meta)
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .txt
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
